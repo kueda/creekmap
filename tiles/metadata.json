@@ -1,0 +1,11 @@
+{
+    "attribution": "", 
+    "description": "", 
+    "center": "-122.1738,37.7478,13", 
+    "bounds": "-122.3636,37.4345,-121.8445,37.9431", 
+    "minzoom": "12", 
+    "version": "1.0.0", 
+    "template": "", 
+    "maxzoom": "16", 
+    "name": "Creek Map"
+}
