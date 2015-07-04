@@ -20,10 +20,9 @@
         northEast = L.latLng(37.9431,-121.8445),
         bounds = L.latLngBounds(southWest, northEast);
     // L.tileLayer(SM_URL, {attribution: OSM_ATTRIB,maxZoom: 18}).addTo(map)
-    var googleLayer = new L.Google('ROADMAP');
+    var googleLayer = new L.Google('ROADMAP')
     var creeksLayer = L.tileLayer('http://kueda.github.io/creekmap/tiles/{z}/{x}/{y}.png', {
-      "attribution": "foo", 
-      "description": "bar", 
+      "attribution": "Creek data from the <a href='http://museumca.org/creeks/'>Oaklnd Museum of California</a>",
       "center": "-122.1738,37.7478,13", 
       "bounds": bounds,
       "minzoom": "12", 
@@ -31,13 +30,21 @@
       "maxzoom": "16", 
       "name": "Creek Map"
     })
+    var stamenTonerLite = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      subdomains: 'abcd',
+      minZoom: 0,
+      maxZoom: 20
+    });
     var map = L.map('map', {
       minZoom: 12, 
-      maxZoom: 16
-      // layers: [creeksLayer,googleLayer]
+      maxZoom: 16,
+      layers: [creeksLayer,stamenTonerLite]
     }).setView([37.8027, -122.2587], 13)
-    map.addLayer(creeksLayer)
+    stamenTonerLite.setOpacity(0.5)
+    creeksLayer.bringToFront()
     // map.addLayer(googleLayer)
+    // map.addLayer(creeksLayer)
     // L.control.layers({
     //   'Base': googleLayer
     // }, {
