@@ -6,8 +6,6 @@
 #map { position: absolute; top:0; left: 0; width:100%; height:100%; }
 </style>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
-<script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
 </head>
 <body>
 
@@ -20,7 +18,6 @@
         northEast = L.latLng(37.9431,-121.8445),
         bounds = L.latLngBounds(southWest, northEast);
     // L.tileLayer(SM_URL, {attribution: OSM_ATTRIB,maxZoom: 18}).addTo(map)
-    var googleLayer = new L.Google('ROADMAP')
     var creeksLayer = L.tileLayer('http://kueda.github.io/creekmap/tiles/{z}/{x}/{y}.png', {
       "attribution": "Creek data from the <a href='http://museumca.org/creeks/'>Oaklnd Museum of California</a>",
       "center": "-122.1738,37.7478,13", 
@@ -43,7 +40,6 @@
     }).setView([37.8027, -122.2587], 13)
     stamenTonerLite.setOpacity(0.5)
     creeksLayer.bringToFront()
-    // map.addLayer(googleLayer)
     // map.addLayer(creeksLayer)
     // L.control.layers({
     //   'Base': googleLayer
