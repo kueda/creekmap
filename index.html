@@ -1,25 +1,40 @@
 <html>
 <head>
 <title>CreekMap</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
 <style type="text/css">
-#map { position: absolute; top:0; left: 0; width:100%; height:100%; }
+  body {
+      padding: 0;
+      margin: 0;
+  }
+  #map {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height:100%;
+  }
 </style>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
 
   <div id="map"></div>
 
   <script type="text/javascript">
-    SM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    // SM_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    OSM_ATTRIB = '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     var southWest = L.latLng(37.4345,-122.3636),
         northEast = L.latLng(37.9431,-121.8445),
         bounds = L.latLngBounds(southWest, northEast);
     // L.tileLayer(SM_URL, {attribution: OSM_ATTRIB,maxZoom: 18}).addTo(map)
-    var creeksLayer = L.tileLayer('http://kueda.github.io/creekmap/tiles/{z}/{x}/{y}.png', {
-      "attribution": "Creek data from the <a href='http://museumca.org/creeks/'>Oaklnd Museum of California</a>",
+    var creeksLayer = L.tileLayer('https://kueda.github.io/creekmap/tiles/{z}/{x}/{y}.png', {
+      "attribution": "Creek data from the <a href='https://museumca.org/creeks/'>Oaklnd Museum of California</a>",
       "center": "-122.1738,37.7478,13", 
       "bounds": bounds,
       "minzoom": "12", 
@@ -27,8 +42,8 @@
       "maxzoom": "16", 
       "name": "Creek Map"
     })
-    var stamenTonerLite = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
-      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    var stamenTonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
+      attribution: 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
       subdomains: 'abcd',
       minZoom: 0,
       maxZoom: 20
